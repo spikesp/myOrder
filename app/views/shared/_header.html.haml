@@ -1,0 +1,14 @@
+%ul.nav.nav-pills
+  %li.nav-item
+    %a.nav-link.active{:href => "#"} 首页
+  %li.nav-item.dropdown
+    %a.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"} 下拉菜单
+    .dropdown-menu
+      %a.dropdown-item{:href => "#"} 客户一览
+      %a.dropdown-item{:href => "#"} 订单一览
+      %a.dropdown-item{:href => "#"} Something else here
+      .dropdown-divider
+      %a.dropdown-item{:href => "#"} Separated link
+  %li.nav-item
+    %a.nav-link{:href => "#"} 链接
+
