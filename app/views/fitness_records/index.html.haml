@@ -8,3 +8,10 @@
         .alert.alert-primary{:role => "alert"}= move.times
 
   .w-100
+.form-group
+  = form_for :record do |f|
+    .input-group-text 锻炼记录 : #{f.text_field :title}
+    %br/
+    .input-group-text 锻炼动作 : #{f.text_field :content}
+    %br/
+    %input.btn.btn-primary{"data-disable-with" => "Save Record", :name => "commit", :type => "submit", :value => "新增锻炼记录"}/
