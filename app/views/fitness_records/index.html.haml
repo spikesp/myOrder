@@ -1,0 +1,10 @@
+.row
+  .col
+    - @fitnessRecords.each do |record|
+      %h3.card-header= record.title
+      - record.fitness_moves.each do |move|
+        .alert.alert-primary{:role => "alert"}= move.name
+        .alert.alert-primary{:role => "alert"}= move.weight
+        .alert.alert-primary{:role => "alert"}= move.times
+
+  .w-100
