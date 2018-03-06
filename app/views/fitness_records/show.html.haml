@@ -1,0 +1,34 @@
+%h3.card-header= @record.title
+%h3.card-header= @record.content
+%button.btn.btn-link= link_to "编辑记录", edit_fitness_record_path(@record.id)
+%table.table.table-striped
+  %thead
+    %tr
+      %th{:scope => "col"} 动作名称
+      %th{:scope => "col"} 重量/KG
+      %th{:scope => "col"} 动作组数
+      %th{:scope => "col"} 更新动作
+      %th{:scope => "col"} 删除动作
+
+  %tbody
+  - @record.fitness_moves.each do |move|
+    %tr
+      %td= move.name
+      %td= move.weight
+      %td= move.times
+      %td= link_to "更新", edit_fitness_record_fitness_move_path(@record.id, move.id), method: :get 
+      %td= link_to "删除", fitness_record_fitness_move_path(@record.id, move.id), method: :delete 
+
+%button.btn.btn-link= link_to "删除记录", edit_fitness_record_path(@record.id)
+%br/
+%br/
+.form-group
+  = form_for :move, {:url => "#{@record.id}/fitness_moves"} do |f|
+    .input-group-text 动作名称 : #{f.text_field :name}
+    %br/
+    .input-group-text 动作重量 : #{f.text_field :weight}
+    %br/
+    .input-group-text 动作次数 : #{f.text_field :times}
+    %br/
+    %input.btn.btn-primary{"data-disable-with" => "Save Record", :name => "commit", :type => "submit", :value => "新增锻炼动作"}/
+  .w-100      

@@ -1,0 +1,9 @@
+.form-group
+  = form_for @move, url: fitness_record_fitness_move_path(@record, @move), method: :patch do |f|
+    .input-group-text 锻炼记录 : #{f.text_field :name}
+    %br/
+    .input-group-text 锻炼记录 : #{f.text_field :weight}
+    %br/
+    .input-group-text 锻炼动作 : #{f.text_field :times}
+    %br/
+    %input.btn.btn-primary{"data-disable-with" => "Update Move", :name => "commit", :type => "submit", :value => "更新锻炼动作"}/

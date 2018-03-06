@@ -1,13 +1,9 @@
 .row
   .col
     - @fitnessRecords.each do |record|
-      %h3.card-header= record.title
-      - record.fitness_moves.each do |move|
-        .alert.alert-primary{:role => "alert"}= move.name
-        .alert.alert-primary{:role => "alert"}= move.weight
-        .alert.alert-primary{:role => "alert"}= move.times
+      %h3.card-header= link_to record.title, record
+      %br/
 
-  .w-100
 .form-group
   = form_for :record do |f|
     .input-group-text 锻炼记录 : #{f.text_field :title}
