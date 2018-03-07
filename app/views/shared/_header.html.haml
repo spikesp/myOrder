@@ -11,4 +11,9 @@
       %a.dropdown-item{:href => "#"} Separated link
   %li.nav-item
     %a.nav-link{:href => "#"} 链接
+  %li.nav-item
+    - if user_signed_in?
+      =link_to "登出", destroy_user_session_path, method: :delete 
+    - else
+      %a.nav-link{:href => "#{new_user_session_path}"} 登录
 

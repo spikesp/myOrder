@@ -12,6 +12,9 @@
       = render 'shared/header'
     %section.content.clearfix
       <!-- = render 'shared/messages' -->
+      %p.notice= notice
+      %p.alert= alert
+
       = yield
     %footer.blockquote-footer
       &copy 2018 MyOrder
