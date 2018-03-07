@@ -1,0 +1,10 @@
+.form-group
+  = form_for :move, {:url => "#{fitness_record_fitness_moves_path}"} do |f|
+    .input-group-text 动作名称 : #{f.text_field :name}
+    %br/
+    .input-group-text 动作重量 : #{f.text_field :weight}
+    %br/
+    .input-group-text 动作次数 : #{f.text_field :times}
+    %br/
+    %input.btn.btn-primary{"data-disable-with" => "Save Record", :name => "commit", :type => "submit", :value => "新增锻炼动作"}/
+  .w-100      

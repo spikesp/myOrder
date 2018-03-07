@@ -7,6 +7,9 @@ class FitnessRecordsController < ApplicationController
     @record = FitnessRecord.find_by(:id => params[:id])
   end
 
+  def new
+  end
+
   def create
     @record = FitnessRecord.new(fitness_record_params)
     if @record
@@ -26,6 +29,16 @@ class FitnessRecordsController < ApplicationController
     @record = FitnessRecord.find_by(:id => params[:id])
     @record.update({:title => params[:fitness_record][:title], :content => params[:fitness_record][:content]})
     redirect_to fitness_records_path
+  end
+
+  def destroy
+    @record = FitnessRecord.find_by(:id => params[:id])
+    if @record
+      @record.destroy
+      redirect_to fitness_records_path
+    else
+      render fitness_records_path
+    end
   end
 
   private

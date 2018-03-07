@@ -1,13 +1,22 @@
 .row
   .col
-    - @fitnessRecords.each do |record|
-      %h3.card-header= link_to record.title, record
+    %table.table.table-striped
+      %thead
+        %tr
+          %th{:scope => "col"} 训练记录
+          %th{:scope => "col"} 修改记录
+          %th{:scope => "col"} 删除记录
+
+      %tbody
+      - @fitnessRecords.each do |record|
+        %tr
+          %td= link_to record.title, record
+          %td= link_to "更新", edit_fitness_record_path(record.id), method: :get 
+          %td= link_to "删除", fitness_record_path(record.id), method: :delete 
       %br/
 
-.form-group
-  = form_for :record do |f|
-    .input-group-text 锻炼记录 : #{f.text_field :title}
-    %br/
-    .input-group-text 锻炼动作 : #{f.text_field :content}
-    %br/
-    %input.btn.btn-primary{"data-disable-with" => "Save Record", :name => "commit", :type => "submit", :value => "新增锻炼记录"}/
+
+
+
+%button.btn.btn-link= link_to "添加一个新的训练记录", new_fitness_record_path
+%button.btn.btn-link= link_to "后退", root_path
